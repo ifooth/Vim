@@ -46,3 +46,4 @@ set helplang=cn
 "set enc=2byte-gb18030
 " 下面这句只影响普通模式 (非图形界面) 下的 Vim。
 set termencoding=utf-8
+set guifont=Courier_New:h10:cDEFAULT
