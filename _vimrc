@@ -48,5 +48,8 @@ set t_Co=256
 set lines=45 columns=150
 set number
 
+set backupdir=$TEMP
+set directory=$TEMP
+
 nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<cr>
 
