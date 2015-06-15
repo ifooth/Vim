@@ -27,23 +27,26 @@ function MyDiff()
   endif
   silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
 endfunction
+
+set encoding=utf-8
+set fileencodings=utf-8,chinese,latin-1
+if has("win32")
+    set fileencoding=chinese
+else
+    set fileencoding=utf-8
+endif
+source $VIMRUNTIME/delmenu.vim
+source $VIMRUNTIME/menu.vim
+set langmenu=en_US.UTF-8
+let $LANG="en_US"
+
+set guifont=Courier_New:h10:cDEFAULT
 colorscheme monokai
+
 set guioptions-=T  "remove toolbar
 set t_Co=256
 set lines=45 columns=150
 set number
-"set runtimepath=D:\Program Files (x86)\Vim\;D:\Program Files (x86)\Vim\vimfiles,D:\Program Files (x86)\Vim\vim74,D:\Program Files (x86)\Vim\vimfiles\after
+
 nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<cr>
-"==========================================
-" FileEncode Settings 文件编码,格式
-"==========================================
-" 设置新文件的编码为 UTF-8
-set encoding=utf-8
-" 自动判断编码时，依次尝试以下编码：
-set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
-set helplang=cn
-"set langmenu=zh_CN.UTF-8
-"set enc=2byte-gb18030
-" 下面这句只影响普通模式 (非图形界面) 下的 Vim。
-set termencoding=utf-8
-set guifont=Courier_New:h10:cDEFAULT
+
