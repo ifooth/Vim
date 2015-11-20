@@ -48,14 +48,17 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 set smartindent
-
+set mouse-=a
 set backupdir=$TEMP
 set directory=$TEMP
 
 nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<cr>
 
+map <Left> <Nop>
+map <Right> <Nop>
+map <Up> <Nop>
+map <Down> <Nop>
 
-set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
@@ -106,4 +109,5 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 "
+" NERDTree Conf
 map <C-n> :NERDTreeToggle<CR>
