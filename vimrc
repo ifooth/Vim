@@ -123,3 +123,4 @@ map <C-n> :NERDTreeToggle<CR>
 au GUIEnter * simalt ~x
 "let g:airline#extensions#tabline#enabled = 1
 set laststatus=2
+set scrolloff=7
