@@ -1,3 +1,10 @@
+set history=2000
+set autoread
+set shortmess=atI
+set wildmenu
+set wildignore=*.swp,*.bak,*.pyc,*.class,.svn
+set cursorcolumn
+set cursorline
 set nocompatible
 source $VIMRUNTIME/vimrc_example.vim
 source $VIMRUNTIME/mswin.vim
@@ -80,6 +87,8 @@ Plugin 'https://github.com/scrooloose/nerdtree.git'
 Plugin 'https://github.com/nvie/vim-flake8'
 Plugin 'https://github.com/tell-k/vim-autopep8'
 Plugin 'https://github.com/davidhalter/jedi-vim'
+"Plugin 'https://github.com/Valloric/YouCompleteMe'
+Plugin 'https://github.com/bling/vim-airline.git'
 "Plugin 'https://github.com/terryma/vim-multiple-cursors' 
 " plugin from http://vim-scripts.org/vim/scripts.html
 "Plugin 'L9'
@@ -111,3 +120,6 @@ filetype plugin indent on    " required
 "
 " NERDTree Conf
 map <C-n> :NERDTreeToggle<CR>
+au GUIEnter * simalt ~x
+"let g:airline#extensions#tabline#enabled = 1
+set laststatus=2
