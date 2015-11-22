@@ -89,6 +89,10 @@ Plugin 'https://github.com/tell-k/vim-autopep8'
 Plugin 'https://github.com/davidhalter/jedi-vim'
 "Plugin 'https://github.com/Valloric/YouCompleteMe'
 Plugin 'https://github.com/bling/vim-airline.git'
+Plugin 'https://github.com/scrooloose/syntastic.git'
+Plugin 'https://github.com/SirVer/ultisnips.git'
+Plugin 'https://github.com/honza/vim-snippets.git'
+Plugin 'https://github.com/scrooloose/nerdcommenter.git'
 "Plugin 'https://github.com/terryma/vim-multiple-cursors' 
 " plugin from http://vim-scripts.org/vim/scripts.html
 "Plugin 'L9'
@@ -124,3 +128,14 @@ au GUIEnter * simalt ~x
 "let g:airline#extensions#tabline#enabled = 1
 set laststatus=2
 set scrolloff=7
+if !exists('g:airline_symbols')
+let g:airline_symbols = {}
+endif
+let g:airline_left_sep = '▶'
+let g:airline_left_alt_sep = '❯'
+let g:airline_right_sep = '◀'
+let g:airline_right_alt_sep = '❮'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+autocmd! bufwritepost vimrc source %
+set completeopt=longest,menu
