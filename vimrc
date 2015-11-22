@@ -66,7 +66,8 @@ map <Right> <Nop>
 map <Up> <Nop>
 map <Down> <Nop>
 
-filetype off                  " required
+filetype on                  " required
+filetype plugin on
 
 " set the runtime path to include Vundle and initialize
 "set rtp+=~/.vim/bundle/Vundle.vim
