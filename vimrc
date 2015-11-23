@@ -10,6 +10,11 @@ source $VIMRUNTIME/vimrc_example.vim
 source $VIMRUNTIME/mswin.vim
 behave mswin
 
+" 修改leader键
+let mapleader = ','
+let g:mapleader = ','
+inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
+
 set diffexpr=MyDiff()
 function MyDiff()
   let opt = '-a --binary '
@@ -87,7 +92,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'https://github.com/scrooloose/nerdtree.git'
 Plugin 'https://github.com/nvie/vim-flake8'
 Plugin 'https://github.com/tell-k/vim-autopep8'
-"Plugin 'https://github.com/davidhalter/jedi-vim'
+Plugin 'https://github.com/Raimondi/delimitMate.git'
 Plugin 'https://github.com/Valloric/YouCompleteMe'
 Plugin 'https://github.com/bling/vim-airline.git'
 Plugin 'https://github.com/scrooloose/syntastic.git'
@@ -145,3 +150,11 @@ hi Pmenu                    guibg=#606060
 hi PmenuSel                 guifg=#dddd00 guibg=#1f82cd
 hi PmenuSbar                guibg=#d6d6d6
 hi PmenuThumb               guifg=#3cac3c
+
+"create undo file
+if has('persistent_undo')
+  set undolevels=1000         " How many undos
+  set undoreload=10000        " number of lines to save for undo
+  set undofile                " So is persistent undo ...
+  set undodir=$APPDATA\vimundo\
+endif
