@@ -11,9 +11,6 @@ if filereadable(expand("~/vimfiles/vimrc.bundles"))
     source ~/vimfiles/vimrc.bundles
 endif
 
-filetype plugin indent on
-
-
 "============================
 " Gerneral Settings
 " ===========================
@@ -100,8 +97,6 @@ set smartindent
 set mouse-=a
 set backupdir=$TEMP
 set directory=$TEMP
-
-nnoremap <buffer> <F9> :exec '!python' shellescape(@%, 1)<cr>
 
 map <Left> <Nop>
 map <Right> <Nop>
