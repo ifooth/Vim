@@ -90,6 +90,7 @@ set guioptions-=m
 set t_Co=256
 set lines=45 columns=150
 set number
+set nowrap
 set expandtab
 set tabstop=4
 set shiftwidth=4
