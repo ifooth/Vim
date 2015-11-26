@@ -82,6 +82,7 @@ set langmenu=en_US.UTF-8
 let $LANG="en_US"
 
 set guifont=DejaVu\ Sans\ Mono:h10:cDEFAULT
+"set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete\ Windows\ Compatible:h10:cDEFAULT
 colorscheme monokai
 "set background=dark
 "colorscheme solarized

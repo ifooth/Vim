@@ -18,14 +18,16 @@ Plugin 'https://github.com/terryma/vim-multiple-cursors.git'
 Plugin 'https://github.com/kien/ctrlp.vim.git'
 Plugin 'https://github.com/dyng/ctrlsf.vim'
 Plugin 'https://github.com/majutsushi/tagbar.git'
-Plugin 'https://github.com/ryanoasis/vim-devicons.git'
+Plugin 'https://github.com/sjl/gundo.vim'
+"Plugin 'https://github.com/ryanoasis/vim-devicons.git'
 
 
 call vundle#end()            " required
 filetype plugin indent on
 "
 " NERDTree Conf
-map <C-n> :NERDTreeToggle<CR>
+map <leader>n :NERDTreeToggle<CR>
+let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.obj$', '\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$', '^\.hg$' ]
 
 
 "let g:airline#extensions#tabline#enabled = 1
@@ -81,3 +83,5 @@ let g:ctrlp_cmd = 'CtrlP'
 map <leader>f :CtrlPMRU<CR>
 "let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 "let g:ctrlp_use_caching = 0
+"
+noremap <leader>h :GundoToggle<CR>
