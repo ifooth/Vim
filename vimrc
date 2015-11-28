@@ -115,3 +115,25 @@ hi PmenuSbar                guibg=#d6d6d6
 hi PmenuThumb               guifg=#3cac3c
 
 au GUIEnter * simalt ~x
+
+set foldenable
+set foldmethod=indent
+set foldlevel=99
+let g:FoldMethod = 0
+map <leader>zz :call ToggleFold()<cr>
+fun! ToggleFold()
+    if g:FoldMethod == 0
+        exe "normal! zM"
+        let g:FoldMethod = 1
+    else
+        exe "normal! zR"
+        let g:FoldMethod = 0
+    endif
+endfun
+
+
+"Smart way to move between windows 分屏窗口移动
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
