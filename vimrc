@@ -87,7 +87,9 @@ colorscheme monokai
 "set background=dark
 "colorscheme solarized
 set guioptions-=T  "remove toolbar
-set guioptions-=m
+set guioptions-=m "remove menubar"
+set guioptions-=r "remove right scroolbar"
+set guioptions-=L "remove left scrollbar"
 set t_Co=256
 set lines=45 columns=150
 set number
@@ -100,12 +102,22 @@ set mouse-=a
 set backupdir=$TEMP
 set directory=$TEMP
 
+set fillchars=vert:│
 map <Left> <Nop>
 map <Right> <Nop>
 map <Up> <Nop>
 map <Down> <Nop>
 
 set laststatus=2
+"设置文内智能搜索提示
+" 高亮search命中的文本。
+set hlsearch
+" 打开增量搜索模式,随着键入即时搜索
+set incsearch
+" 搜索时忽略大小写
+set ignorecase
+" 有一个或以上大写字母时仍大小写敏感
+set smartcase     " ignore case if search pattern is all lowercase, case-sensitive otherwise
 
 autocmd! bufwritepost vimrc source %
 set completeopt=longest,menu
@@ -137,3 +149,8 @@ map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-h> <C-W>h
 map <C-l> <C-W>l
+
+" 新建tab  Ctrl+t
+nnoremap <C-t>     :tabnew<CR>
+inoremap <C-t>     <Esc>:tabnew<CR>
+set hidden
