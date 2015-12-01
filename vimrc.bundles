@@ -14,28 +14,31 @@ Plugin 'https://github.com/honza/vim-snippets.git'
 Plugin 'https://github.com/tell-k/vim-autopep8'
 
 Plugin 'https://github.com/Raimondi/delimitMate.git'
+
 Plugin 'https://github.com/kien/ctrlp.vim.git'
 Plugin 'https://github.com/dyng/ctrlsf.vim'
-Plugin 'https://github.com/majutsushi/tagbar.git'
 Plugin 'https://github.com/sjl/gundo.vim'
+
 "Plugin 'https://github.com/ryanoasis/vim-devicons.git'
-Plugin 'https://github.com/easymotion/vim-easymotion.git'
-Plugin 'https://github.com/yegappan/mru.git'
 "Plugin 'https://github.com/hdima/python-syntax.git'
 Plugin 'https://github.com/szw/vim-ctrlspace.git'
 "Plugin 'https://github.com/davidhalter/jedi-vim.git'
 
 
+Plugin 'https://github.com/easymotion/vim-easymotion.git'
+Plugin 'https://github.com/yegappan/mru.git'
 Plugin 'https://github.com/terryma/vim-multiple-cursors.git'
-Plugin 'https://github.com/bling/vim-airline.git'
 Plugin 'https://github.com/scrooloose/nerdtree.git'
+Plugin 'https://github.com/majutsushi/tagbar.git'
+Plugin 'https://github.com/bling/vim-airline.git'
 call vundle#end()            " required
-filetype plugin indent on
 "
 " NERDTree Conf
 map <leader>n :NERDTreeToggle D:\WorkStation\Tencent-TP\PaaS<CR>
 let NERDTreeIgnore=[ '\.pyc$', '\.pyo$', '\.obj$', '\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$', '^\.hg$', '^templates_module$']
 
+let g:NERDTreeDirArrowExpandable="▸"
+let g:NERDTreeDirArrowCollapsible="▾"
 
 "let g:airline#extensions#tabline#enabled = 1
 
@@ -65,12 +68,16 @@ endif
 au FileType python let b:delimitMate_nesting_quotes = ['"']
 au FileType python let b:delimitMate_nesting_quotes = ["'"]
 
-"let g:airline_left_sep = '▶'
-"let g:airline_left_alt_sep = '❯'
-"let g:airline_right_sep = '◀'
-"let g:airline_right_alt_sep = '❮'
-"let g:airline_symbols.linenr = '¶'
-"let g:airline_symbols.branch = '⎇'
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_left_sep = '▶'
+let g:airline_left_alt_sep = '❯'
+let g:airline_right_sep = '◀'
+let g:airline_right_alt_sep = '❮'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+
 "augroup load_ycm
 "  autocmd!
 "  autocmd! InsertEnter *

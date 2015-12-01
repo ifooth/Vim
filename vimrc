@@ -7,6 +7,15 @@ let g:mapleader = ','
 
 syntax on
 
+set encoding=utf-8
+"set fileencodings=utf-8,chinese,latin-1
+set fileencoding=utf-8
+"source $VIMRUNTIME/delmenu.vim
+"source $VIMRUNTIME/menu.vim
+set langmenu=en_US.UTF-8
+let $LANG="en_US"
+scriptencoding utf-8
+
 if filereadable(expand("~/vimfiles/vimrc.bundles"))
     source ~/vimfiles/vimrc.bundles
 endif
@@ -48,38 +57,31 @@ behave mswin
 
 inoremap <expr> <CR>       pumvisible() ? "\<C-y>" : "\<CR>"
 
-set diffexpr=MyDiff()
-function MyDiff()
-  let opt = '-a --binary '
-  if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
-  if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
-  let arg1 = v:fname_in
-  if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
-  let arg2 = v:fname_new
-  if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
-  let arg3 = v:fname_out
-  if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
-  let eq = ''
-  if $VIMRUNTIME =~ ' '
-    if &sh =~ '\<cmd'
-      let cmd = '""' . $VIMRUNTIME . '\diff"'
-      let eq = '"'
-    else
-      let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
-    endif
-  else
-    let cmd = $VIMRUNTIME . '\diff'
-  endif
-  silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
-endfunction
+"set diffexpr=MyDiff()
+"function MyDiff()
+  "let opt = '-a --binary '
+  "if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
+  "if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
+  "let arg1 = v:fname_in
+  "if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
+  "let arg2 = v:fname_new
+  "if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
+  "let arg3 = v:fname_out
+  "if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
+  "let eq = ''
+  "if $VIMRUNTIME =~ ' '
+    "if &sh =~ '\<cmd'
+      "let cmd = '""' . $VIMRUNTIME . '\diff"'
+      "let eq = '"'
+    "else
+      "let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
+    "endif
+  "else
+    "let cmd = $VIMRUNTIME . '\diff'
+  "endif
+  "silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
+"endfunction
 
-set encoding=utf-8
-"set fileencodings=utf-8,chinese,latin-1
-set fileencoding=utf-8
-"source $VIMRUNTIME/delmenu.vim
-"source $VIMRUNTIME/menu.vim
-set langmenu=en_US.UTF-8
-let $LANG="en_US"
 
 set guifont=DejaVu\ Sans\ Mono:h10:cDEFAULT
 "set guifont=DejaVu\ Sans\ Mono\ for\ Powerline\ Nerd\ Font\ Complete\ Windows\ Compatible:h10:cDEFAULT
@@ -120,6 +122,7 @@ set ignorecase
 set smartcase     " ignore case if search pattern is all lowercase, case-sensitive otherwise
 
 autocmd! bufwritepost vimrc source %
+autocmd! bufwritepost vimrc.bundles source %
 set completeopt=longest,menu
 hi Pmenu                    guibg=#606060
 hi PmenuSel                 guifg=#dddd00 guibg=#1f82cd
@@ -154,3 +157,5 @@ map <C-l> <C-W>l
 nnoremap <C-t>     :tabnew<CR>
 inoremap <C-t>     <Esc>:tabnew<CR>
 set hidden
+
+inoremap <Leader>e <Esc>
