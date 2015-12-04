@@ -42,8 +42,10 @@ if has('persistent_undo')
   set undolevels=1000         " How many undos
   set undoreload=10000        " number of lines to save for undo
   set undofile                " So is persistent undo ...
-  set undodir=$APPDATA\vimundo\
+  set undodir=$APPDATA\vim\undo\
 endif
+set backupdir=$APPDATA\vim\backup\
+set directory=$APPDATA\vim\swap\
 
 set wildignore=*.swp,*.bak,*.pyc,*.class,.svn
 
@@ -101,8 +103,6 @@ set tabstop=4
 set shiftwidth=4
 set smartindent
 set mouse-=a
-set backupdir=$TEMP
-set directory=$TEMP
 
 set fillchars=vert:│
 map <Left> <Nop>
@@ -146,7 +146,18 @@ fun! ToggleFold()
     endif
 endfun
 
+vnoremap <leader>y "+y
+map <leader>th :tabfirst<cr>
+map <leader>tl :tablast<cr>
 
+map <leader>tj :tabnext<cr>
+map <leader>tk :tabprev<cr>
+map <leader>tn :tabnext<cr>
+map <leader>tp :tabprev<cr>
+
+map <leader>te :tabedit<cr>
+map <leader>td :tabclose<cr>
+map <leader>tm :tabm<cr>
 "Smart way to move between windows 分屏窗口移动
 map <C-j> <C-W>j
 map <C-k> <C-W>k
@@ -157,5 +168,15 @@ map <C-l> <C-W>l
 nnoremap <C-t>     :tabnew<CR>
 inoremap <C-t>     <Esc>:tabnew<CR>
 set hidden
-
-inoremap <Leader>e <Esc>
+inoremap kj <Esc>
+noremap <leader>1 1gt
+noremap <leader>2 2gt
+noremap <leader>3 3gt
+noremap <leader>4 4gt
+noremap <leader>5 5gt
+noremap <leader>6 6gt
+noremap <leader>7 7gt
+noremap <leader>8 8gt
+noremap <leader>9 9gt
+noremap <leader>0 :tablast<cr>
+au BufReadPost *.part set syntax=html
